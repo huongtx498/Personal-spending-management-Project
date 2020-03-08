@@ -1,0 +1,23 @@
+{% extends  "users/base1.html" %} 
+{% block rightcolumn %}
+
+<div class="w3-bar w3-teal w3-card" >
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Danh sách ví">Danh sách sổ nợ<i class="fa fa-caret-down"></i></span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      {% for sono in ds_sono %}
+        <!-- cần thêm link lấy chi tiết các sổ nợ -->
+        <a href="{% url 'chi_tiet_sono' sono.id %}" class="w3-bar-item w3-button w3-center">{{ sono.ten_so_no }}</a> 
+      {% endfor %}
+    </div>
+  </div> 
+    
+    <a href="{% url 'them_sono' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right" style="color:white">Thêm sổ nợ</a>
+    </div>
+    
+    {% block content %}
+    {{context}}
+    {% endblock content %}
+
+ {% endblock %} 

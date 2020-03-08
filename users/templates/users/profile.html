@@ -1,0 +1,46 @@
+{% extends  "users/base1.html" %} 
+{% block rightcolumn %}
+
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h4 class="w3-text-grey w3-padding-16"><i class="fa fa-user-circle-o fa-fw w3-margin-right w3-xxmedium w3-text-teal"></i><b style="text-transform:uppercase">XIN CHÀO {{username}}!</b></h4>
+        <div class="w3-container">
+
+                <div class="form-row field-ten_tai_khoan">
+                        <div>
+                            <label for="id_ten_tai_khoan">Tên tài khoản:</label>
+                                <h6>
+                                    {{username}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-first-name">
+                        <div>
+                            <label for="id_first_name">Họ:</label>
+                                <h6>
+                                    {{firstname}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-last-name">
+                        <div>
+                                <label for="id_last_name">Tên:</label>
+                                <h6>
+                                    {{lastname}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-email">
+                        <div>
+                                <label for="id_email">Email:</label>
+                                <h6>
+                                    {{email}}
+                                </h6>
+                        </div>
+                </div>
+        </div>
+</div>
+
+{% endblock %}

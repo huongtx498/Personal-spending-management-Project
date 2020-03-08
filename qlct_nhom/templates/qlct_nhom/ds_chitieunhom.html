@@ -1,0 +1,45 @@
+{% extends  "qlct_nhom/qlct_nhom.html" %} 
+{% block content %}
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+        </h4 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxmedium w3-text-teal"></i>LỊCH SỬ CHI TIÊU NHÓM</h4>
+        <div class="w3-container">
+
+                <div class="form-row field-ten_hoa_don">
+                        <div>
+                            <label for="id_ten_hoa_don">Tên hoá đơn:</label>
+                                <h6>
+                                    {{ten_hoa_don}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-linh-vuc">
+                        <div>
+                            <label for="id_linh_vuc">Lĩnh vực:</label>
+                                <h6>
+                                    {{linh_vuc}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-so_tien">
+                        <div>
+                                <label for="id_so_tien">Số tiền:</label>
+                                <h6>
+                                    {{so_tien}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-ghi-chu">
+                        <div>
+                                <label for="id_ghi_chu">Ghi chú:</label>
+                                <h6>
+                                    {{ghi_chu}}
+                                </h6>
+                        </div>
+                </div>
+        </div>
+</div>
+    
+     {% endblock %} 

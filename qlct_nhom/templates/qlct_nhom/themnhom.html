@@ -1,0 +1,27 @@
+{% extends  "qlct_nhom/qlct_nhom.html" %}
+{% block content %}
+
+
+<form action="{% url 'thuc_hien_them_nhom' %}" method="post" id="linhvuc_form" onsubmit="return confirmAction()" novalidate>
+        {% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+                        <div class="form-row field-ten">
+                                <div>
+                                        <label for="id_ten">Tên nhóm</label>
+                                        <input type="text" name="ten" class="vTextField" maxlength="45" id="id_ten">
+                                </div>
+                        </div>
+                        <div class="form-row field-dinh_muc">
+                                <div>
+                                        <label for="id_dinh_muc">Định mức:</label>
+                                        <input type="number" name="dinh_muc" class="vIntegerField" id="id_dinh_muc">
+                                </div>
+                        </div>
+                </fieldset>
+        </div>
+        <div class="submit-row">
+                <input type="submit" value="Save" class="default" name="_save">
+        </div>
+</form>
+{% endblock %}

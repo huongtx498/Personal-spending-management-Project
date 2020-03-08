@@ -1,0 +1,47 @@
+{% extends  "qlct_ca_nhan/qlct_canhan.html" %}
+{% block content %}
+
+
+<form action="{% url 'thuc_hien_them_linh_vuc' %}" method="post" id="linhvuc_form" novalidate>
+        {% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+                        <div class="form-row field-ten">
+                                <div>
+                                        <label for="id_ten">Tên:</label>
+                                        <input type="text" name="ten" class="vTextField" maxlength="45" id="id_ten">
+                                </div>
+                        </div>
+                        <div class="form-row field-loai">
+                                <div>
+                                        <label for="id_loai">Loại:</label>
+                                        <input type="number" name="loai" class="vIntegerField" id="id_loai">
+                                </div>
+                        </div>
+                        <div class="form-row field-linh_vuc">
+                                <div>
+                                        <label for="id_linh_vuc">Lĩnh vực:</label>
+                                        <!-- thêm link lấy ds lĩnh vục hiện có -->
+                                        <div class="related-widget-wrapper">
+                                                <select name="linh_vuc" id="id_linh_vuc">
+                                                        <option value=-1 selected>---------</option>
+                                                        {% for linhvuc in ds_linhvuc %}
+                                                                <option value= {{ linhvuc.id }}> {{ linhvuc }} </option>
+                                                        {% endfor %}
+                                                </select>
+                                                <!-- link thêm kĩnh vực khác  -->
+                                                <a class="related-widget-wrapper-link add-related" id="add_id_linh_vuc"
+                                                        href="{% url 'themlinhvuc' %}" title="Add another linh vuc">
+                                                        <img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+                                        </div>
+                                </div>
+                        </div>
+                </fieldset>
+                <div class="submit-row">
+                        <input type="submit" value="Save" class="default" name="_save">
+                </div>
+        </div>
+</form>
+</div>
+<!-- END Content -->
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends  "qlct_nhom/qlct_nhom.html" %} 
+{% block content %}
+
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h4 class="w3-text-grey w3-padding-16"><i class="fa fa-address-book fa-fw w3-margin-right w3-xxmedium w3-text-teal"></i>THÔNG TIN THÀNH VIÊN:</h4>
+        {% comment %} thêm id để xoá khỏi nhóm {% endcomment %}
+        <ul class="object-tools">
+            <li>   
+                <a href="{% url 'thuc_hien_xoa_nhom_user' %}" onclick="return confirmAction()" style="margin-top:-10px">Xoá khỏi nhóm <i class="fa fa-remove"></i></a>
+            </li>
+        </ul>
+        <div class="w3-container">
+
+                <div class="form-row field-ten_user">
+                        <div>
+                            <label for="id_ten_user">Tên thành viên:</label>
+                                <h6>
+                                    {{username}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-email">
+                        <div>
+                            <label for="id_email">Email:</label>
+                                <h6>
+                                    {{email}}
+                                </h6>
+                        </div>
+                </div>
+
+                <div class="form-row field-dinh_muc">
+                        <div>
+                                <label for="id_dinh_muc">Định mức:</label>
+                                <h6>
+                                    {{dinh_muc}}
+                                </h6>
+                        </div>
+                </div>
+        </div>
+</div>
+    
+     {% endblock %} 

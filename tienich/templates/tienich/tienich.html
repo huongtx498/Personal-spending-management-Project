@@ -1,0 +1,198 @@
+{% extends  "users/base1.html" %} 
+{% block rightcolumn %}
+
+<style>
+#currency_converter form {
+    padding: 0px;
+    margin: 0px;
+}
+
+#currency_converter div {
+    padding: 0px;
+    margin: 0px;
+    width:650px;
+}
+
+#currency_converter #calc_div, #currency_converter #calc_div_iframe, #currency_converter .form_bottom {
+    display: none;
+}
+
+#currency_converter .required, #currency_converter .err {
+    color: #ffffff;
+}
+
+#currency_converter .form_table_outframe {
+	display: block;
+    width: 650px;
+    font-family: Verdana, sans-serif;
+    font-size: 11px;
+	color:#333333;
+	background-color:#02406c;
+}
+
+#currency_converter .page_header {
+    display: block;
+    float: left;
+    width: 700px;
+    background-color: #999999;
+    color: #ffffff;
+	text-align:center;
+	line-height:25px;
+	padding-bottom:5px;
+	border-bottom: solid 1px #ffffff;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:16px;
+    text-transform: capitalize;
+}
+
+#currency_converter .form_table_frame {
+    float: left;
+    width: 700px;
+    padding: 0px;
+}
+
+#currency_converter .form_table {
+    display: block;
+    float: left;
+    width: 700px;
+
+    padding-bottom:10px;
+	background-color:#cccccc;
+}
+
+#currency_converter .form_table_row {
+    display: block;
+    width: 700px;
+    margin-left:10px;
+	margin-top:10px;
+}
+
+#currency_converter #calculator_subscribe {
+    margin-top:20px;
+    width: 670px;
+}
+
+#currency_converter .form_fields, .form_label_bgr, select {
+    font-family: Verdana, sans-serif;
+    font-size: 11px;
+}
+/* #currency_converter_menu_links */
+#currency_converter a, #currency_converter a:visited, #currency_converter a:active {
+    text-decoration: underline;
+    color: #3963AB;
+}
+
+#currency_converter a:hover {
+    text-decoration: underline;
+}
+
+#currency_converter #currency_converter_menu_links a {
+    display: block;
+    font-size: 11px;
+    float: left;
+    width: 100%;
+    margin-bottom:5px;
+    margin-left:10px;
+    padding-left:20px;
+    display:inline;
+    line-height:15px;
+	color:#333333;
+    min-height: 16px;
+}
+
+#currency_converter #currency_converter_menu_links  a {
+    background: url(../images/bullet_question.gif) left no-repeat;
+}
+
+#currency_converter #currency_converter_menu_links a.uri3431 {
+    background: url(../images/bullet_add.gif) left no-repeat;
+}
+
+#currency_converter #currency_converter_calculator_subscribe_form_under_info {
+    display: block;
+    float: left;
+    width: 670px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#currency_converter .checkradio_form_label_cell {
+    display: block;
+    width: 90%;
+}
+
+#currency_converter .rate_calc_result {
+    display:block;
+    border: none;
+    float:left;
+    width: 670px;
+    padding: 2px;
+    text-align:left;
+    font-weight: normal;
+    background-color: #ececec;
+	color:#333333;
+	padding-left:4px;
+    clear: both;
+}
+
+#currency_converter .rate_calc_result a{
+	color:#333333;
+}
+
+/*------ new ------*/
+
+#currency_converter .form_label_bgr, #currency_converter .form_fields {
+    width:670px;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:11px;
+    color:#333333;
+}
+
+#currency_converter .btn_submit {
+    width:670px;
+    height:25px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    line-height:25px;
+    color:#333333;
+    border:none;
+    font-weight:bold;
+    background: url(../images/button_convert.gif) left no-repeat;
+    cursor:pointer;
+
+}
+
+#powerd {
+    float:left;
+    width:700px;
+    clear:left;
+    margin-top:4px;
+}
+
+#powerd a {
+    font-family:verdana;
+    font-size:10px;
+    color:#333333;
+    text-decoration:none;
+}
+
+#powerd a:hover {
+    font-family:verdana;
+    font-size:10px;
+    color:#333333;
+    text-decoration:underline;
+}
+</style>
+<div id="demo-rate-convert"></div>
+<script>
+    var apiTargetHtmlObj = document.getElementById("demo-rate-convert");
+    var tmScript = document.createElement("script");
+    tmScript.src = "https://www.transfermate.com/en/exchange_rates_api.asp";
+    document.getElementsByTagName("head")[0].appendChild(tmScript);
+</script>
+{% comment %} <noscript><br/><span style="color: red;">Please enable your JavaScript.</span></noscript> {% endcomment %}
+
+{% endblock %}

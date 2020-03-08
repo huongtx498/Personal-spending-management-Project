@@ -1,0 +1,117 @@
+{% load static %} 
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no,">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script type="text/javascript" src="/admin/jsi18n/"></script>
+  <script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+  <script type="text/javascript" src="/static/admin/js/core.js"></script>
+  <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+  <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+  <script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+  <script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+  <script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+  <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+  <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+  <title>Home</title>
+
+  <SCRIPT LANGUAGE="JavaScript">
+      function confirmAction() {
+        return confirm("Are you sure?")
+      }
+  </SCRIPT>
+
+  <style type="text/css">
+  </style>
+
+</head>
+
+<body class="w3-light-grey">
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large" >
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href={% url 'profile' %} class="w3-bar-item w3-button w3-padding-large w3-theme-d4" title="Trang chủ"><i class="fa fa-home w3-margin-right"></i>Home</a>
+  <a href={% url 'yc_capnhap_taikhoan' %} class="w3-bar-item w3-button w3-hide-small w3-padding-large " title="Cập nhập thông tin tài khoản" style="color:white"><i class="fa fa-user"></i></a>
+  <a href="{% url 'logout' %}" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large" title="Đăng xuất" style="color:white">
+  <i class="fa fa-sign-out"></i>
+  </a>
+ </div>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:70px">
+<!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+        <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><a href={% url 'thongtin_taikhoan' %}><img src="{% static 'users/client4.jpg' %}" class="w3-circle" style="height:80px;width:80px" alt="Avatar"></a></p>
+         <hr>
+          <div class="w3-display-bottomleft w3-container w3-text-white">
+          <h2>{% block name %}
+          {{myname}}
+          {% endblock name %}</h2>
+          </div>
+        </div>
+      
+        <div class="w3-container">
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{% block Email %}
+          {{email}}
+          {% endblock Email %}</p>
+        </div>
+        <br>
+        <div class="w3-container">
+          <div class="w3-bar-block w3-teal w3-card">
+          <a class="w3-bar-block w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+          <a href="{% url 'qlct_canhan_page' %}" class="w3-bar-item w3-button w3-padding-large" style="color:white">QLCT Cá Nhân</a>
+          <a href="{% url 'qlct_nhom_page' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small" style="color:white">QLCT Nhóm</a>
+          <a href="{% url 'sono_page' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small" style="color:white">Sổ Nợ</a>
+          <a href="{% url 'tienich_page' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small" style="color:white">Tiện Ích</a>
+          </div>
+          <br>
+        </div>    
+      </div>
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird" style="margin-top:10px">
+     {% block rightcolumn %}
+
+     {% endblock %} 
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-content" style="max-width:1400px;margin-top:80px">
+  <p>Find me on social media.</p>
+  <p>Powered by <a href="https://www.facebook.com/hieu.leminh.3726" target="_blank">LMH</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "qlct_ca_nhan/qlct_canhan.html" %}
+{% block content %}
+
+   <style>
+      table {
+          width: 100%;
+          height: 210px;
+        }
+      td {
+          vertical-align: middle;
+          border-bottom: 1px solid gray;
+        }
+</style> 
+      
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+    <h4 class="w3-text-grey w3-padding-16"><i class="fa fa-list fa-fw w3-margin-right w3-xxmedium w3-text-teal"></i>DANH SÁCH CHI TIÊU:</h4>
+    <div class="w3-container" style="margin-top:20px; margin-bottom:50px">
+        <div class="results">
+          <table id="result_list" border="1px" align="center">
+          <thead>
+            <tr>
+                <td scope="col"  class="w3-center"><b>Chi Tiêu</b></td>
+                <td scope="col"  class="w3-center"><b>Số tiền (VND)</b></td>
+                <td scope="col"  class="w3-center"><b>Lĩnh Vực</b></td>
+                <td scope="col"  class="w3-center"><b>Ghi Chú</b></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for chitieu in ds_chitieu %}
+            <tr>
+                <td class="w3-center">{{chitieu.ten_hoa_don}}</td>
+                <td class="w3-center">{{chitieu.so_tien}}</td>
+                <td class="w3-center">{{chitieu.linh_vuc}}</td>
+                <td class="w3-center">{{chitieu.ghi_chu}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>      
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends  "qlct_ca_nhan/qlct_canhan.html" %}
+{% block content %}
+
+
+<form action="{% url 'thuc_hien_them_vi' %}" method="post" id="linhvuc_form" novalidate>
+        {% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+                        <div class="form-row field-ten">
+                                <div>
+                                        <label for="id_ten">Tên ví:</label>
+                                        <input type="text" name="ten" class="vTextField" maxlength="45" id="id_ten">
+                                </div>
+                        </div>
+                        <div class="form-row field-dinh_muc">
+                                <div>
+                                        <label for="id_dinh_muc">Định mức:</label>
+                                        <input type="number" name="dinh_muc" class="vIntegerField" id="id_dinh_muc">
+                                </div>
+                        </div>
+                        <div class="form-row field-so_du">
+                                <div>
+                                        <label for="id_so_du">Số dư:</label>
+                                        <input type="number" name="so_du" class="vIntegerField" id="id_so_du">
+                                </div>
+                        </div>
+                </fieldset>
+        </div>
+        <div class="submit-row">
+                <input type="submit" value="Save" class="default" name="_save">
+        </div>
+</form>
+{% endblock %}

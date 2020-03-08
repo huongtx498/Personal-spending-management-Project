@@ -1,0 +1,54 @@
+{% extends  "qlct_nhom/qlct_nhom.html" %}
+{% block content %}
+
+<!-- form thêm user vào nhóm, có khi không cần -->
+<form action="-thuc_hien_them_nhom_user" method="post" id="nhomuser_form" novalidate>
+    <div>
+        <fieldset class="module aligned ">
+            <div class="form-row field-nhom">
+                <div>
+                    <label class="required" for="id_nhom">Nhóm:</label>
+                    <div class="related-widget-wrapper">
+                        <select name="nhom" required id="id_nhom">
+                            <option value="" selected>---------</option>
+                            {% for nhom in ds_nhom %}
+                            <option class="w3-bar-item w3-button w3-center">{{ nhom.ten }}</option> 
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row field-user">
+                <div>
+                    <label class="required" for="id_user">User:</label>
+                    <div class="related-widget-wrapper">
+                        <select name="user" required id="id_user">
+                            <option value="" selected>---------</option>
+                            {% for user in ds_user %}
+                            <option class="w3-bar-item w3-button w3-center">{{ user.ten }}</option> 
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row field-dinh_muc">
+                <div>
+                    <label class="required" for="id_dinh_muc">Định mức:</label>
+                    <input type="number" name="dinh_muc" class="vIntegerField" required id="id_dinh_muc">
+                </div>
+            </div>
+        </fieldset>
+        <div class="submit-row">
+            <input type="submit" value="Save" class="default" name="_save">
+        </div>
+        <script type="text/javascript" id="django-admin-form-add-constants" src="/static/admin/js/change_form.js"
+            data-model-name="nhomuser">
+            </script>
+        <script type="text/javascript" id="django-admin-prepopulated-fields-constants"
+            src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+            </script>
+    </div>
+</form>
+</div>
+<!-- END Content -->
+{% endblock %}

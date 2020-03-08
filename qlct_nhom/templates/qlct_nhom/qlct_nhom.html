@@ -1,0 +1,37 @@
+{% extends  "users/base1.html" %} 
+{% block rightcolumn %}
+
+<div class="w3-bar w3-teal w3-card" >
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Danh sách nhóm">Danh sách nhóm<i class="fa fa-caret-down"></i></span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      {% for nhom in ds_nhom %}
+        <!-- cần thêm link lấy chi tiết các thành viên nhóm -->
+        <a href="{% url 'ds_user' nhom.id %}" class="w3-bar-item w3-button w3-center">{{ nhom.ten }}</a> 
+      {% endfor %}
+      <a href="{% url 'themnhom' %}" class="w3-bar-item w3-button w3-center">thêm nhóm</a>
+    </div>
+  </div> 
+
+    
+      <a href="{% url 'them_vinhom' %}" class="w3-bar-item w3-button w3-padding-large w3-hide-small" style="color:white">Thêm ví nhóm</a>
+    
+  
+    <!-- <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small" style="color:white">Lịch Sử Chi Tiêu</a> -->
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">Biểu Đồ <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href=# class="w3-bar-item w3-button">Biểu Đồ Lĩnh Vực</a>
+        <a href=# class="w3-bar-item w3-button">Biểu Đồ Chi Tiêu</a>
+      </div>
+    </div>
+    
+    <a href="{% url 'them_chitieu' %}" class="w3-padding-large w3-hide-small w3-right w3-hover-white" title="thêm chi tiêu" style="color:white">Thêm chi tiêu nhóm</a>
+  </div>
+
+    {% block content %}
+    {{context}}
+    {% endblock content %}
+
+ {% endblock %} 

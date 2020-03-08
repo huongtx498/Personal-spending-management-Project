@@ -1,0 +1,43 @@
+{% extends "qlct_ca_nhan/qlct_canhan.html" %}
+{% block content %}
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      var table = [['Chi Phí', '%'], 
+                  ['{{lv1}}', {{so1}}],
+                  ['{{lv2}}', {{so2}}],
+                  ['{{lv3}}', {{so3}}],
+                  ['{{lv4}}', {{so4}}],
+                  ['{{lv5}}', {{so5}}],
+                  ['{{lv6}}', {{so6}}],
+                  ['{{lv7}}', {{so7}}],
+                  ['{{lv8}}', {{so8}}],
+                  ['{{lv9}}', {{so9}}],
+                  ['{{lv10}}', {{so10}}]
+                  ];
+    
+
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(table);
+        var options = {
+          title: 'Biểu Đồ Chi Tiêu theo Lĩnh Vực'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 885px; height: 500px;"></div>
+  </body>
+
+</html>
+
+{% endblock %}

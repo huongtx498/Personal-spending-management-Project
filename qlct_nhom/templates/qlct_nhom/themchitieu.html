@@ -1,0 +1,98 @@
+{% extends  "qlct_nhom/qlct_nhom.html" %}
+{% block content %}
+
+
+<form action="{% url 'thuc_hien_them_chi_tieu_nhom' %}" method="post" id="hoadon_form" novalidate>
+        {% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+                        <div class="form-row field-ten_hoa_don">
+                                <div>
+                                        <label for="id_ten_hoa_don">Tên hoá đơn:</label>
+                                        <input type="text" name="ten_hoa_don" class="vTextField" maxlength="45"
+                                                id="id_ten_hoa_don">
+                                </div>
+                        </div>
+                        <div class="form-row field-so_tien">
+                                <div>
+                                        <label for="id_so_tien">Số tiền:</label>
+                                        <input type="number" name="so_tien" class="vIntegerField" id="id_so_tien">
+                                </div>
+                        </div>
+                        <div class="form-row field-ghi-chu">
+                                <div>
+                                        <label for="id_ghi_chu">Ghi chú:</label>
+                                        <input type="text" name="ghi_chu" class="vTextField" maxlength="45"
+                                                id="id_ghi_chu">
+                                </div>
+                        </div>
+                        <div class="form-row field-thoi_gian_giao_dich">
+                                <div>
+                                        <label for="id_thoi_gian_giao_dich_0">Thời gian giao dịch:</label>
+                                        <p class="datetime">
+                                                Date: <input type="text" name="thoi_gian_giao_dich_0" class="vDateField"
+                                                        size="10" id="id_thoi_gian_giao_dich_0">
+                                                <br>
+                                                Time: <input type="text" name="thoi_gian_giao_dich_1" class="vTimeField"
+                                                        size="8" id="id_thoi_gian_giao_dich_1">
+                                        </p>
+                                </div>
+                        </div>
+                        <!-- <div class="form-row field-vi_nhom"> -->
+                        <!-- <div> -->
+                        <!-- <label for="id_vi_nhom">Ví nhóm:</label> -->
+                        <!-- <div class="related-widget-wrapper"> -->
+                        <!-- <select name="vi_nhom" id="id_vi_nhom"> -->
+                        <!-- <option value="" selected>---------</option> -->
+                        <!-- thêm vòng for cho ví nhóm vào đây -->
+                        <!-- </select> -->
+                        <!-- limk thêm ví nhóm -->
+                        <!-- <a class="related-widget-wrapper-link add-related" id="add_id_vi_nhom" href=# title="Add another vi nhom"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a> -->
+                        <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- </div> -->
+                        <div class="form-row field-linh_vuc">
+                                <div>
+                                        <label class="required" for="id_linh_vuc">Lĩnh vực:</label>
+                                        <div class="related-widget-wrapper">
+                                                <!-- vòng for thêm lĩnh vực -->
+                                                <select name="linh_vuc" required id="id_linh_vuc">
+                                                        <option value=-1 selected>---------</option>
+                                                        {% for linhvuc in ds_linhvuc %}
+                                                                <option value= {{ linhvuc.id }}> {{ linhvuc }} </option>
+                                                        {% endfor %}
+                                                </select>
+                                                <!-- link thêm lĩnh vực -->
+                                                <a class="related-widget-wrapper-link add-related" id="add_id_linh_vuc"
+                                                        href="{% url 'themlinhvuc' %}" title="Add another linh vuc"><img
+                                                                src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="form-row field-vi-nhom">
+                                <div>
+                                        <label for="id_vi-nhom">Ví nhóm:</label>
+                                        <div class="related-widget-wrapper">
+                                                <!--vòng for thêm ví nhóm -->
+                                                <select name="vi_nhom" id="id_vi-nhom">
+                                                        <option value=-1 selected>---------</option>
+                                                        {% for vi in ds_vi %}
+                                                        <!-- cần thêm link vào đây (link dến lấy chi tiết ví) -->
+                                                        <option value={{vi.id}}>{{ vi.ten }}</option>
+                                                        {% endfor %}
+                                                </select>
+                                                <!-- link thêm ví -->
+                                                <a class="related-widget-wrapper-link add-related"
+                                                        id="add_id_vi-nhom" href="{% url 'them_vinhom' %}"
+                                                        title="Add another vi ca nhan"><img
+                                                                src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+                                        </div>
+                                </div>
+                        </div>
+        </div>
+        </fieldset>
+        <div class="submit-row">
+                <input type="submit" value="Save" class="default" name="_save">
+        </div>
+</form>
+{% endblock %}

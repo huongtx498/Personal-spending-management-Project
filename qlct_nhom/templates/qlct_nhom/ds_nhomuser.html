@@ -1,0 +1,47 @@
+{% extends "qlct_nhom/qlct_nhom.html" %}
+{% block content %}
+
+<style>
+table {
+          width: 100%;
+          height: 210px;
+}
+td {
+    vertical-align: middle;
+    border-bottom: 1px solid gray;
+}
+</style>
+
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+    <h4 class="w3-text-grey w3-padding-16"><i class="fa fa-list fa-fw w3-margin-right w3-xxmedium w3-text-teal"></i>DANH SÁCH USER:</h4>
+    <ul class="object-tools">
+        <li>   
+            <a href="{% url 'them_nhom_user' %}" class="addlink" style="margin-top:-10px">Thêm thành viên</a>
+        </li>
+    </ul>
+    <div class="w3-container" style="margin-top:20px; margin-bottom:50px">
+         
+        <div class="results">
+          <table id="result_list" border="1px" align="center">
+          <thead>
+            <tr>
+                <td scope="col" class="w3-center"><b>ID</b></td>
+                <td scope="col"  class="w3-center"><b>Tài Khoản</b></td>
+                <td scope="col"  class="w3-center"><b>Email</b></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in ds_user %}
+            <tr>
+                <td class="w3-center">{{user.id}}</td>
+                <td class="w3-center"><a href="{% url 'nhom_user_info' user.id %}">{{user.username}}</a></td>
+                <td class="w3-center">{{user.email}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>      
+    </div>
+</div>
+
+</div>
+{% endblock %}

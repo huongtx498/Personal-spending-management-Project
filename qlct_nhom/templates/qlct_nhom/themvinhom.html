@@ -1,0 +1,54 @@
+{% extends  "qlct_nhom/qlct_nhom.html" %}
+{% block content %}
+
+
+<form action="{% url 'thuc_hien_them_vinhom' %}" method="post" id="vinhom_form" novalidate>
+        {% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+                        <div class="form-row field-ten">
+                                <div>
+                                        <label for="id_ten">Tên:</label>
+                                        <input type="text" name="ten" class="vTextField" maxlength="45" id="id_ten" value="hieu" >
+                                </div>
+                        </div>
+                        <div class="form-row field-dinh_muc">
+                                <div>
+                                        <label for="id_dinh_muc">Định mức:</label>
+                                        <input type="number" name="dinh_muc" class="vIntegerField" id="id_dinh_muc">
+                                </div>
+                        </div>
+                        <div class="form-row field-so_du">
+                                <div>
+                                        <label for="id_so_du">Số dư:</label>
+                                        <input type="number" name="so_du" class="vIntegerField" id="id_so_du">
+                                </div>
+
+                        </div>
+                        <div class="form-row field-auth_group">
+                                <div>
+                                        <label class="required" for="id_auth_group">Auth group:</label>
+                                        <div class="related-widget-wrapper">
+                                                <select name="auth_group" required id="id_auth_group">
+                                                        <option value="" selected>---------</option>
+                                                        <!-- cần có biến ds_nhom ở context -->
+                                                        {% for nhom in ds_nhom %} 
+                                                                <option value= {{ nhom.id }}> {{ nhom }} </option>
+                                                        {% endfor %}
+                                                </select>
+                                                <a class="related-widget-wrapper-link add-related"
+                                                        id="add_id_auth_group" href="{% url 'themnhom' %}" title="Add another nhom"><img
+                                                                src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+                                        </div>
+                                </div>
+                        </div>
+                </fieldset>
+                <div class="submit-row">
+                        <input type="submit" value="Save" class="default" name="_save">
+                </div>
+        </div>
+</form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends  "sono/sono.html" %}
+{% block content %}
+
+
+<form action="{% url 'thuc_hien_them_sono' %}" method="post" id="sono_form" novalidate>
+        {% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+                        <div class="form-row field-ten_so_no">
+                                <div>
+                                        <label for="id_ten_so_no">Tên sổ nợ:</label>
+                                        <input type="text" name="ten_so_no" class="vTextField" maxlength="200"
+                                                id="id_ten_so_no">
+                                </div>
+                        </div>
+                        <div class="form-row field-so_tien">
+                                <div>
+                                        <label for="id_so_tien">Số tiền:</label>
+                                        <input type="number" name="so_tien" class="vIntegerField" id="id_so_tien">
+                                </div>
+                        </div>
+                        <div class="form-row field-doi_tac">
+                                <div>
+                                        <label for="id_doi_tac">Đối tác:</label>
+                                        <input type="text" name="doi_tac" class="vTextField" maxlength="200"
+                                                id="id_doi_tac">
+                                </div>
+                        </div>
+                        <div class="form-row field-loai">
+                                <div>
+                                        <label for="id_loai">Loại:</label>
+                                        <input type="number" name="loai" class="vIntegerField" id="id_loai">
+                                </div>
+                        </div>
+                        <div class="form-row field-ngay_vay">
+                                <div>
+                                        <label for="id_ngay_vay_0">Ngày vay:</label>
+                                        <p class="datetime">
+                                                Date: <input type="text" name="ngay_vay_0" class="vDateField" size="10"
+                                                        id="id_ngay_vay_0">
+                                                <br>
+                                                Time: <input type="text" name="ngay_vay_1" class="vTimeField" size="8"
+                                                        id="id_ngay_vay_1">
+                                        </p>
+                                </div>
+                        </div>
+                        <div class="form-row field-ngay_tra">
+                                <div>
+                                        <label for="id_ngay_tra_0">Ngày trả:</label>
+                                        <p class="datetime">
+                                                Date: <input type="text" name="ngay_tra_0" class="vDateField" size="10"
+                                                        id="id_ngay_tra_0">
+                                                <br>
+                                                Time: <input type="text" name="ngay_tra_1" class="vTimeField" size="8"
+                                                        id="id_ngay_tra_1">
+                                        </p>
+                                </div>
+                        </div>
+                </fieldset>
+                <div class="submit-row">
+                        <input type="submit" value="Save" class="default" name="_save">
+                </div>
+        </div>
+</form>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends  "users/base1.html" %} 
+{% block rightcolumn %}
+
+<div id="content-main">
+
+    <form action="thuchien_capnhap_taikhoan" method="post" id="user_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="">
+
+    <fieldset class="module aligned ">
+    <h2>Account's info</h2>   
+
+        <div class="form-row field-username">                       
+                <div>                                      
+                        <label class="required" for="id_username">Username:</label>                       
+                            <input type="text" name="username" value="{{username}}" class="vTextField" maxlength="150" required id="id_username" disable>                                                                           
+                </div>            
+        </div>
+    
+        <div class="form-row field-password">                       
+                <div>                                       
+                        <label for="id_password">Password:</label>
+                        <input type="password" name="password" value="******" class="vTextField" disable>                                                                           
+                        <div class="help">Raw passwords are not stored, so there is no way to see this user's password, but you can change the password using 
+                        <a href="../password/">this form</a>.</div>                       
+                </div>           
+        </div>
+    
+</fieldset>
+
+  <fieldset class="module aligned ">
+    <h2>Personal info</h2>
+        
+        <div class="form-row field-first_name">                      
+                <div>                                        
+                        <label for="id_first_name">Họ:</label>              
+                            <input type="text" name="first_name" class="vTextField" maxlength="30" id="id_first_name" autofocus>                                                               
+                </div>           
+        </div>
+    
+        <div class="form-row field-last_name">                      
+                <div>                                      
+                        <label for="id_last_name">Tên:</label>
+                            <input type="text" name="last_name" class="vTextField" maxlength="150" id="id_last_name">                                                              
+                </div>           
+        </div>
+        
+        <div class="form-row field-last_login">                      
+                <div>                                       
+                        <label for="id_last_login_0">Ngày sinh:</label>        
+                            <input type="text" name="date_of_birth" value="" class="vDateField" size="10" id="id_data_of_birth">                              
+                </div>           
+        </div>
+        {% comment %}         
+        <div class="form-row field-file">                       
+                <div>                                      
+                        <label for="id_file">Avatar:</label>                        
+                        <input type="file" name="fileupload" value="fileupload" id="fileupload">                       
+                </div>           
+        </div>    
+        {% endcomment %}
+                        
+        <div class="form-row field-email">                       
+                <div>                                      
+                        <label for="id_email">Email:</label>                        
+                            <input type="email" name="email" value="{{email}}" class="vTextField" maxlength="254" id="id_email">                   
+                </div>           
+        </div>   
+</fieldset>
+
+            <div class="submit-row">
+                <input type="submit" value="Save" class="default" name="_save">
+            </div>
+
+</form>
+</div>
+{% endblock %}

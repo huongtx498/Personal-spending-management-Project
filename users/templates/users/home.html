@@ -1,0 +1,75 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manage Spending HomePage</title>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="{% static 'users/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/mainhome.css' %}">
+    <script type="text/javascript" src="users/jquery.min.js"></script>
+    <script type="text/javascript" src="users/main.js"></script>
+    <link rel="stylesheet" href="{ % static 'users/jquery.min.js' % }">
+    <link rel="stylesheet" href="{ % static 'users/main.js' % }">
+</head>
+
+<body>
+
+    <header class="trasparent_nav">
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><!-- End trasparent_nav -->
+
+    <header class="fixed_nav">
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><!-- End fixed_nav -->
+
+    <section class="billboard">
+		<section class="caption">
+			<p class="cap_title">Welcome to Manage Spending app </p>
+			<p class="cap_desc">Welcome Page</p>
+            <br>
+			<a href="{% url 'login' %}">Login Here<i></i></a>
+		</section>
+	</section><!-- End billboard -->
+
+   
+    <section class="testimonials wrapper">
+        <h3>About Us:</h3>
+        <ul class="testi_boxs">
+            <li>
+                <img class="avatar" src="{% static 'users/client1.jpg' %}" alt="" width="290px" height="190px" />
+                <h2>Mẫn Đức Trọng Hiếu <span class="client_job">/ Developer</span></h2>
+                <p>CNTT - Đại học Bách khoa Hà Nội</p>
+            </li>
+            <li>
+                <img class="avatar" src="{% static 'users/client2.jpg' %}" alt="" />
+                <h2>Trình Xuân Hương <span class="client_job">/ UI Designer</span></h2>
+                <p>CNTT - Đại học Bách khoa Hà Nội</p>
+            </li>
+            <li>
+                <img class="avatar" src="{% static 'users/client3.jpg' %}" alt="" />
+                <h2>Lê Minh Hiếu <span class="client_job">/ Developer</span></h2>
+                <p>CNTT - Đại học Bách khoa Hà Nội</p>
+            </li>
+        </ul>
+    </section>
+
+
+    <script src='../ga.js'></script>
+</body>
+</html>
